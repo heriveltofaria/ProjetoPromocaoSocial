@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29/04/2017 16:23:33 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="scr.Usuario" table="usuario" schema="public" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomeresponsavel" type="string">
+            <column name="nomeresponsavel" length="100" not-null="true" />
+        </property>
+        <property name="bairro" type="string">
+            <column name="bairro" length="50" not-null="true" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="telefone" length="11" not-null="true" />
+        </property>
+        <property name="data" type="date">
+            <column name="data" length="13" not-null="true" />
+        </property>
+        <property name="pif" type="string">
+            <column name="pif" length="3" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
