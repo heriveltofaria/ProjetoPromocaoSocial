@@ -8,15 +8,19 @@ package cras.service;
 import cras.HibernateUtil;
 import scr.Usuario;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
  * @author Herivelto
  */
 public class UsuarioService {
-        public void create(Usuario usuario) throws Exception {
+
+    public void create(Usuario usuario) throws Exception {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.save(usuario);
@@ -56,5 +60,14 @@ public class UsuarioService {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Usuario usuario = (Usuario) session.get(Usuario.class, id);
         return usuario;
+    }
+
+    public List<Usuario> readByCriteria(String nome) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria crit = session.createCriteria(Usuario.class);
+        crit.add(Restrictions.ilike("nomeresponsavel", nome, MatchMode.ANYWHERE));
+        List<Usuario> usuarioList = crit.list();
+        return usuarioList;
+
     }
 }

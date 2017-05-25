@@ -5,6 +5,20 @@
 <br>
 <br>
 <br>
+
+<script>
+    function formatar(mascara, documento) {
+        var i = documento.value.length;
+        var saida = mascara.substring(0, 1);
+        var texto = mascara.substring(i);
+
+        if (texto.substring(0, 1) !== saida) {
+            documento.value += texto.substring(0, 1);
+        }
+
+    }
+</script>
+
 <div class="container">
     <h1 class="bg-warning text-center">Cadastro de Usuários</h1>
     <form action="gravar" method="POST">
@@ -25,23 +39,31 @@
             <input name="data" type="date" class="form-control" id="data"  required="">
         </div>
         <div class="form-group">
-            <label for="pif">PIF</label>
+            <label for="pif">PAIF</label>
             <input name="pif" type="text" class="form-control" id="pif"  required="">
         </div>
+        <br>
         <div>
-            <button class="btn btn-info" type="submit"> Gravar</button>         
+            <button class="btn btn-info col-md-1" type="submit"> Gravar</button>         
         </div>
     </form>
     <form action="listar" method="GET">
-        <button class="btn btn-primary" type="submit"> Listar</button>      
+        <button class="btn btn-primary col-md-1" type="submit" > Listar</button>      
         <br>
     </form>
-    <div class="form-group">
-        <input type="text" name="pesquisa" class="form-control" id="pesquisa" placeholder="Digite sua pesquisa">
-    </div>
+    <br>
+      <br>
+    <form action="listarCriterio" method="GET">
+        <input type="text" name="nomeResponsavel" class="form-control" placeholder="Digite sua pesquisa">
+          <br>
+        <button class="btn btn-primary" type="submit" aria-expanded="false" aria-controls="collapseExample">
+            Pesquisar
+        </button>
+    </form>
 </div>
-
+<br>
+<br>
+<br>
 
 
 <c:import url="/WEB-INF/jsp/componentes/rodape.jsp"/>       
-

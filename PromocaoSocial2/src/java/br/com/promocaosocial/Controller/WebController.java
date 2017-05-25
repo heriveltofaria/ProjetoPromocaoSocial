@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.portlet.ModelAndView;
+import org.springframework.web.servlet.View;
 import scr.Usuario;
 
 @Controller
@@ -21,19 +22,18 @@ public class WebController{
     
     @RequestMapping("/index")
     public String getIndex() {  
-        
         return "index";
     }
     
     @RequestMapping("/formCadastro")
-    public String getFormCadastro(Model model) {  
-       
+    public String getFormCadastro(Model model) {         
         return "form/formCadastro";
     }
 
     @RequestMapping(value = "gravar", method = RequestMethod.POST)
     protected String getFormCadastro(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
+        
         String dat = request.getParameter("data");
         String[] div = dat.split("-");
 
@@ -43,7 +43,6 @@ public class WebController{
 
         Date data = new Date(ano - 1900, mes - 1, dia);
 
-
         Usuario usu = new Usuario();
         usu.setId(295l);
         usu.setNomeresponsavel(request.getParameter("nome"));
@@ -52,8 +51,6 @@ public class WebController{
         usu.setData(data);
         usu.setPif(request.getParameter("pif"));
         UsuarioService us = new UsuarioService();
-        
-        
         us.create(usu);
         return "views/confirmacaoCadastro";
         
@@ -61,16 +58,18 @@ public class WebController{
     @RequestMapping(value = "listar", method = RequestMethod.GET)
     public String listarUsuario(Model model) throws Exception{
         UsuarioService us = new UsuarioService();
-        java.util.List <Usuario> usuarioList = new ArrayList<>();
-        usuarioList = us.readByAll();
-        
+        java.util.List <Usuario> usuarioList = us.readByAll();
+        model.addAttribute("usuarioList",usuarioList);
+        return "views/listarUsuario";
+    }
+    @RequestMapping(value = "listarCriterio", method = RequestMethod.GET)
+    public String listarUsuarioCriterio(Model model, HttpServletRequest request,
+        HttpServletResponse response){
+        UsuarioService us = new UsuarioService();
+        String parametro= request.getParameter("nomeResponsavel");
+        java.util.List <Usuario> usuarioList = us.readByCriteria(parametro);
         model.addAttribute("usuarioList",usuarioList);
         
-       // model.addAttribute("nome", );
-        
-        
-        return "views/listarUsuario" ;
-        
-        
+        return "views/listarUsuario";
     }
 }

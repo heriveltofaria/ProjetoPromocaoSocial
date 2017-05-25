@@ -46,7 +46,7 @@ public class JUnitTest {
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
-    @Test
+    //@Test
     public void create() throws Exception {
         Usuario usu = new Usuario();
         int ano = 2017;
@@ -129,5 +129,30 @@ public class JUnitTest {
         System.out.println("Data: " + usuario.getData());
         System.out.println("PIF: " + usuario.getPif());
 
+    }
+    @Test
+    public void readByCriteria() throws Exception {
+        UsuarioService ps = new UsuarioService();
+        String nome = "ma";
+        List<Usuario> usuarioList = ps.readByCriteria(nome);
+
+        usuarioList.stream().map((usuario) -> {
+            System.out.println("Codigo do Usuario: " + usuario.getId());
+            return usuario;
+        }).map((usuario) -> {
+            System.out.println("Nome do Responsável: " + usuario.getNomeresponsavel());
+            return usuario;
+        }).map((usuario) -> {
+            System.out.println("Bairro: " + usuario.getBairro());
+            return usuario;
+        }).map((usuario) -> {
+            System.out.println("Telefone: " + usuario.getTelefone());
+            return usuario;
+        }).map((usuario) -> {
+            System.out.println("Data: " + usuario.getData());
+            return usuario;
+        }).forEachOrdered((usuario) -> {
+            System.out.println("PIF: " + usuario.getPif());
+        });
     }
 }
