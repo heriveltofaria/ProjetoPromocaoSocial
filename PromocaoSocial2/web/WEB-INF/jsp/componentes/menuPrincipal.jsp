@@ -31,6 +31,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="<c:url value="/formCadastro"/>">Cadastro</a></li>
                                     <li><a href="#">Bolsa Família</a></li>
+				    <li><a href="#">Oficinas</a></li>
                                     <li><a href="#">Renda Mínima</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li class="dropdown-header">CREAS</li>
