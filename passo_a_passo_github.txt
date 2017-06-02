@@ -1,0 +1,6 @@
+APÓS ABRIR O GITHUB NA PASTA DO DIRETÓRIO CRIADO
+* git pull - atualiza a pasta com o que foi atualizado antes daquele acesso.
+* git add . - adiciona/comit tudo que tem na pasta
+* git add nome_do_arquivo - adiciona/comita o arquivo selecionado pelo nome
+* git commit -m "comentários das alterações" - comentário sobre o que comitou.
+* git push - enviar com as alterações.
