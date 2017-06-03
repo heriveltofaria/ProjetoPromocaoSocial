@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRAS- Administrador</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	<div class="container">
+        <form class="col-sm-5">
+            <h1>Cadastrar Usuário:</h1>
+            <div class="form-group">
+                <label for="usr">Nome do Usuário:</label>
+                <input type="text" class="form-control"  id="urs">
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control"  id="cpf"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="login">Login:</label>
+                <input type="text" class="form-control" id="login">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Senha:</label>
+                <input type="text" class="form-control" id="pwd">
+            </div>
+            <div class="form-group">
+                <label for="pwd2">Confirmar Senha:</label>
+                <input type="text" class="form-control" id="pwd2">
+            </div>
+            <button type="button" id="sendButton" class="btn btn-primary btn-lg form-control"  data-loading-text="Carregando...">Cadastrar</button>
+        </form>
+        <form class="col-sm-5">
+            <h1>Pesquisar Usuário</h1>
+             <div class="form-group">
+               <label class="control-label" for="oficinal">Nome do Usuário:</label>                
+               <input type="text" class="form-control"  id="oficinal" >               
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th>Nome do Usuário</th>
+                    <th>Perfil de Usuário</th>   
+                    <th>Deletar?</th>
+                    <th>Alterar?</th>         
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>Jonathan</td>
+                    <td>Administrador</td>                    
+                    <td><button type="button" class="btn btn-danger glyphicon glyphicon-trash" onclick="alert('Tem certeza que deseja excluir?')"></span></td>
+                    <td><a type="button" class="btn btn-primary glyphicon glyphicon-wrench" href="formAlterarUsuario.html"></a></td>
+                    </tr>            
+                </tbody>
+            </table>
+            <h1>Listar Usuários do Sistema</h1>
+                <input type="button" name="botaoListarUsuarios" class="btn btn-info"  value="Listar!" onclick="listarUsuarios()">
+        </form>
+    </div>
+
+
+
+    <!-- Biblioteca jQuery e código do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> 
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>

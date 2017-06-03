@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRAS- Oficinas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	<div class="container">
+        <form class="col-sm-5">
+            <h1>Cadastrar Oficina:</h1>
+            <div class="form-group">
+                <label for="oficina">Nome da Oficina:</label>
+                <input type="text" class="form-control"  id="oficina">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea type="text" class="form-control" rows="4" id="descricao"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="vagas">Qtde vagas disponíveis:</label>
+                <input type="text" class="form-control" id="vagas">
+            </div>
+            <div class="form-group">
+                <label for="vagas2">Qtde vagas para excedentes:</label>
+                <input type="text" class="form-control" id="vagas2">
+            </div>
+            <button type="button" id="sendButton" class="btn btn-primary btn-lg form-control"  data-loading-text="Carregando...">Cadastrar</button>
+        </form>
+        <form class="col-sm-5">
+            <h1>Pesquisar Oficina</h1>
+             <div class="form-group">
+               <label class="control-label" for="oficinal">Nome da Oficina:</label>                
+               <input type="text" class="form-control"  id="oficinal" >               
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th>Nome da Oficina</th>
+                    <th>Qtde vagas disponíveis</th>   
+                    <th>Qtde participantes</th>
+                    <th>Deletar?</th>
+                    <th>Alterar?</th>         
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>Violão</td>
+                    <td>15</td>
+                    <td>45</td>                    
+                    <td><button type="button" class="btn btn-danger glyphicon glyphicon-trash" onclick="alert('Tem certeza que deseja excluir?')"></span></td>
+                    <td><a type="button" class="btn btn-primary glyphicon glyphicon-wrench" href="formAlterarOficinas.html"></a></td>
+                    </tr>            
+                </tbody>
+            </table>
+            <h1>Listar Oficinas</h1>
+                <input type="button" name="botaoListarUsuarios" class="btn btn-info"  value="Listar!" onclick="listarOficinas()">
+        </form>
+    </div>
+
+
+
+    <!-- Biblioteca jQuery e código do Bootstrap -->
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> 
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
